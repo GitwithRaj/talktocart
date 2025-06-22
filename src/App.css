@@ -159,3 +159,19 @@ body {
   color: #555;
   font-size: 14px;
 }
+
+.invoice-btn {
+  margin-top: 1rem;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.invoice-btn:hover {
+  background-color: #0056b3;
+}
