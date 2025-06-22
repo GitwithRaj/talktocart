@@ -86,7 +86,7 @@ function App() {
     setError("");
     const finalPrompt = overridePrompt || prompt;
     try {
-      const res = await fetch("http://localhost:8000/parse", {
+      const res = await fetch("https://talktocart-backend.onrender.com/parse", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ prompt: finalPrompt, cart }),
