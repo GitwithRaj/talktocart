@@ -221,7 +221,7 @@ function App() {
             {allowedItems.map((item) => (
               <div className="card" key={item}>
                 <div className="card-image">
-                  <img src={`/images/${item}.jpg`} alt={item} />
+                  <img src={`images/${item}.jpg`} alt={item} />
                 </div>
                 <div className="card-content">
                   <h3>{item.toUpperCase()}</h3>
@@ -250,7 +250,7 @@ function App() {
                 {Object.entries(cart).map(([item, qty]) => (
                   <div className="cart-card" key={item}>
                     <img
-                      src={`/images/${item}.jpg`}
+                      src={`images/${item}.jpg`}
                       alt={item}
                       className="cart-image"
                     />
