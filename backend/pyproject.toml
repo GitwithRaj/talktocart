@@ -1,0 +1,8 @@
+# backend/pyproject.toml
+[project]
+name = "talktocart-backend"
+version = "0.1.0"
+fastapi = "*"
+uvicorn = "*"
+python-dotenv = "*"
+groq = "*"
