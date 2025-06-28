@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/talktocart/static/css/main.e0c808c9.css",
-    "main.js": "/talktocart/static/js/main.350d0668.js",
+    "main.js": "/talktocart/static/js/main.d7ea22cb.js",
     "static/js/239.282fca80.chunk.js": "/talktocart/static/js/239.282fca80.chunk.js",
     "static/js/977.25beceee.chunk.js": "/talktocart/static/js/977.25beceee.chunk.js",
     "static/js/455.a996051d.chunk.js": "/talktocart/static/js/455.a996051d.chunk.js",
     "static/js/453.8eae628f.chunk.js": "/talktocart/static/js/453.8eae628f.chunk.js",
     "index.html": "/talktocart/index.html",
     "main.e0c808c9.css.map": "/talktocart/static/css/main.e0c808c9.css.map",
-    "main.350d0668.js.map": "/talktocart/static/js/main.350d0668.js.map",
+    "main.d7ea22cb.js.map": "/talktocart/static/js/main.d7ea22cb.js.map",
     "239.282fca80.chunk.js.map": "/talktocart/static/js/239.282fca80.chunk.js.map",
     "977.25beceee.chunk.js.map": "/talktocart/static/js/977.25beceee.chunk.js.map",
     "455.a996051d.chunk.js.map": "/talktocart/static/js/455.a996051d.chunk.js.map",
@@ -16,6 +16,6 @@
   },
   "entrypoints": [
     "static/css/main.e0c808c9.css",
-    "static/js/main.350d0668.js"
+    "static/js/main.d7ea22cb.js"
   ]
 }
