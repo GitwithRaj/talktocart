@@ -259,11 +259,14 @@ function App() {
       setError("");
 
       try {
-        const res = await fetch("http://127.0.0.1:8000/parse", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ prompt: spokenText, cart }),
-        });
+        const res = await fetch(
+          "https://talktocart-backend.onrender.com/parse",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ prompt: spokenText, cart }),
+          }
+        );
 
         const data = await res.json();
         const { add = {}, remove = {}, message, action, cssChanges } = data;
