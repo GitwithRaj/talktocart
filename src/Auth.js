@@ -9,7 +9,7 @@ function AuthForm({ onLogin }) {
   const handleAuth = async () => {
     try {
       const res = await fetch(
-        `http://localhost:8001/users?username=${username}`
+        `https://talktocartserver.onrender.com/users?username=${username}`
       );
       if (!res.ok) throw new Error("User lookup failed");
       const users = await res.json();
@@ -26,11 +26,14 @@ function AuthForm({ onLogin }) {
           alert("User already exists");
         } else {
           // Register new user
-          const createRes = await fetch("http://localhost:8001/users", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ username, password }),
-          });
+          const createRes = await fetch(
+            "https://talktocartserver.onrender.com/users",
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ username, password }),
+            }
+          );
 
           if (!createRes.ok) {
             throw new Error("Registration failed");
@@ -38,7 +41,7 @@ function AuthForm({ onLogin }) {
 
           // Fetch newly created user
           const userRes = await fetch(
-            `http://localhost:8001/users?username=${username}`
+            `https://talktocartserver.onrender.com/users?username=${username}`
           );
           const newUserData = await userRes.json();
 
