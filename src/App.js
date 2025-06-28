@@ -138,13 +138,11 @@ function App() {
   const saveCartToServer = async (cartData) => {
     if (!user) return;
     try {
-      // const res = await fetch(`http://localhost:8001/carts?userId=${user.id}`);
       const res = await fetch(
         `https://talktocartserver.onrender.com/carts?userId=${user.id}`
       );
       const data = await res.json();
       if (data.length > 0) {
-        // await fetch(`http://localhost:8001/carts/${data[0].id}`,
         await fetch(
           `https://talktocartserver.onrender.com/carts/${data[0].id}`,
           {
@@ -158,7 +156,6 @@ function App() {
           }
         );
       } else {
-        //await fetch(`http://localhost:8001/carts`,
         await fetch(`https://talktocartserver.onrender.com/carts`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -175,7 +172,6 @@ function App() {
       if (!user) return;
       try {
         const res = await fetch(
-          // `http://localhost:8001/carts?userId=${user.id}`
           `https://talktocartserver.onrender.com/carts?userId=${user.id}`
         );
         const data = await res.json();
