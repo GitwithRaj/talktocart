@@ -1,4 +1,5 @@
 .auth-form {
+  position: relative;
   max-width: 350px;
   margin: 60px auto;
   padding: 30px 25px;
@@ -7,6 +8,8 @@
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   text-align: center;
   font-family: "Segoe UI", sans-serif;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .auth-form h3 {
@@ -25,6 +28,7 @@
   border-radius: 8px;
   outline: none;
   transition: border-color 0.3s;
+  box-sizing: border-box;
 }
 
 .auth-form input:focus {
@@ -57,4 +61,34 @@
 
 .auth-form button:last-child:hover {
   background-color: #e6f0ff;
+}
+
+.auth-cancel {
+  margin-top: 14px;
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+  color: #333;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.auth-cancel:hover {
+  background: #e0e0e0;
+}
+
+/* 📱 Responsive */
+@media (max-width: 480px) {
+  .auth-form {
+    margin: 40px 15px;
+    padding: 25px 20px;
+  }
+
+  .auth-form h3 {
+    font-size: 1.25rem;
+  }
+  .auth-form input,
+  .auth-form button {
+    font-size: 0.95rem;
+  }
 }

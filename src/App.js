@@ -381,7 +381,8 @@ function App() {
 
     doc.save("invoice.pdf");
   };
-  if (showAuth) return <Auth onLogin={handleLogin} />;
+  if (showAuth)
+    return <Auth onLogin={handleLogin} onCancel={() => setShowAuth(false)} />;
   if (showCart)
     return (
       <Cart

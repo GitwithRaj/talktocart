@@ -1,7 +1,7 @@
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import "./Auth.css";
 
-function AuthForm({ onLogin }) {
+function AuthForm({ onLogin, onCancel }) {
   const [authMode, setAuthMode] = useState("login");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -25,7 +25,6 @@ function AuthForm({ onLogin }) {
         if (users.length) {
           alert("User already exists");
         } else {
-          // Register new user
           const createRes = await fetch(
             "https://talktocartserver.onrender.com/users",
             {
@@ -35,11 +34,8 @@ function AuthForm({ onLogin }) {
             }
           );
 
-          if (!createRes.ok) {
-            throw new Error("Registration failed");
-          }
+          if (!createRes.ok) throw new Error("Registration failed");
 
-          // Fetch newly created user
           const userRes = await fetch(
             `https://talktocartserver.onrender.com/users?username=${username}`
           );
@@ -80,7 +76,6 @@ function AuthForm({ onLogin }) {
         onChange={(e) => setPassword(e.target.value)}
         autoComplete="new-password"
       />
-
       <button onClick={handleAuth}>
         {authMode === "login" ? "Login" : "Register"}
       </button>
@@ -88,6 +83,9 @@ function AuthForm({ onLogin }) {
         onClick={() => setAuthMode(authMode === "login" ? "register" : "login")}
       >
         Switch to {authMode === "login" ? "Register" : "Login"}
+      </button>
+      <button className="auth-cancel" onClick={onCancel}>
+        Cancel
       </button>
     </div>
   );
