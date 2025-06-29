@@ -199,7 +199,14 @@ function App() {
       });
 
       const data = await res.json();
-      const { add = {}, remove = {}, message, action, cssChanges } = data;
+      const {
+        add = {},
+        remove = {},
+        message,
+        action,
+        cssChanges,
+        user: returnedUser,
+      } = data;
 
       if (action === "generate_invoice") {
         if (Object.keys(cart).length === 0) {
@@ -211,6 +218,17 @@ function App() {
       } else if (action === "update_ui" && cssChanges) {
         applyStyles(cssChanges);
         setError(message || "✅ UI updated.");
+      } else if (action === "login" || action === "register") {
+        if (returnedUser) {
+          setUser(returnedUser);
+          localStorage.setItem("user", JSON.stringify(returnedUser));
+          setError(message || "✅ Auth successful");
+        } else {
+          setError(message || "❌ Auth failed");
+        }
+      } else if (action === "logout") {
+        handleLogout();
+        setError(message || "🚪 Logged out");
       } else {
         updateCart(add, remove, message);
       }
@@ -248,7 +266,6 @@ function App() {
       console.error("Speech error:", event);
       setError("❌ Voice recognition failed. Try again.");
     };
-
     recognition.onresult = async (event) => {
       const spokenText = event.results[0][0].transcript;
       setPrompt(spokenText);
@@ -266,7 +283,14 @@ function App() {
         );
 
         const data = await res.json();
-        const { add = {}, remove = {}, message, action, cssChanges } = data;
+        const {
+          add = {},
+          remove = {},
+          message,
+          action,
+          cssChanges,
+          user: returnedUser,
+        } = data;
 
         if (action === "generate_invoice") {
           if (Object.keys(cart).length === 0) {
@@ -278,6 +302,17 @@ function App() {
         } else if (action === "update_ui" && cssChanges) {
           applyStyles(cssChanges);
           setError(message || "✅ UI updated.");
+        } else if (action === "login" || action === "register") {
+          if (returnedUser) {
+            setUser(returnedUser);
+            localStorage.setItem("user", JSON.stringify(returnedUser));
+            setError(message || "✅ Auth successful");
+          } else {
+            setError(message || "❌ Auth failed");
+          }
+        } else if (action === "logout") {
+          handleLogout();
+          setError(message || "🚪 Logged out");
         } else {
           updateCart(add, remove, message);
         }
@@ -298,7 +333,6 @@ function App() {
         setLoading(false);
       }
     };
-
     recognition.onend = () => {
       console.log("Voice recognition ended");
     };
