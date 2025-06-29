@@ -4,6 +4,7 @@ import autoTable from "jspdf-autotable";
 import "./App.css";
 import Auth from "./Auth";
 import Cart from "./Cart";
+import Footer from "./Footer";
 
 function App() {
   const [user, setUser] = useState(() => {
@@ -403,10 +404,18 @@ function App() {
               onChange={(e) => setPrompt(e.target.value)}
               placeholder="e.g., Add 2 shirts and remove 1 jacket"
             />
-            <button onClick={() => handlePrompt()} disabled={loading}>
+            <button
+              className="submitVoice"
+              onClick={() => handlePrompt()}
+              disabled={loading}
+            >
               {loading ? "..." : "Submit"}
             </button>
-            <button onClick={handleVoice} disabled={loading}>
+            <button
+              className="SubmitVoice"
+              onClick={handleVoice}
+              disabled={loading}
+            >
               🎙️ Voice
             </button>
           </div>
@@ -471,6 +480,7 @@ function App() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
