@@ -73,7 +73,7 @@ async def parse_prompt(data: PromptRequest):
             print(f"UI prompt detected: {prompt}")
             try:
                 response = client.chat.completions.create(
-                    model="llama3-70b-8192",
+                   model="llama-3.3-70b-versatile",
                     messages=[
                         {"role": "system", "content": system_msg},
                         {"role": "user", "content": prompt}
@@ -120,7 +120,7 @@ async def parse_prompt(data: PromptRequest):
             )
 
             auth_response = client.chat.completions.create(
-                model="llama3-70b-8192",
+                model="llama-3.3-70b-versatile",
                 messages=[
                     {"role": "system", "content": system_auth_msg},
                     {"role": "user", "content": prompt}
@@ -207,7 +207,7 @@ async def parse_prompt(data: PromptRequest):
         )
 
         response = client.chat.completions.create(
-            model="llama3-70b-8192",
+            model="llama-3.3-70b-versatile",
             messages=[
                 {"role": "system", "content": system_msg},
                 {"role": "user", "content": prompt}
